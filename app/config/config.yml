@@ -86,4 +86,11 @@ dunglas_api:
     collection:
         filter_name:
             order:   "order"                           
-        order:       DESC                              
+        order:       DESC    
+
+
+# Doctrine Extensions
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true

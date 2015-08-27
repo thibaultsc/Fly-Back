@@ -3,6 +3,7 @@
 namespace FlyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * Airport
@@ -12,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Airport
 {
+    use TimestampableEntity;
+    
     /**
      * @var integer
      *

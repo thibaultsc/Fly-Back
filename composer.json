@@ -23,7 +23,9 @@
         
         "dunglas/api-bundle": "dev-master",
         "guzzlehttp/guzzle": "~5.0",
-        "coresphere/console-bundle": "dev-master"
+        "coresphere/console-bundle": "dev-master",
+        "stof/doctrine-extensions-bundle": "~1.1",
+        "simplethings/entity-audit-bundle": "~0.7"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

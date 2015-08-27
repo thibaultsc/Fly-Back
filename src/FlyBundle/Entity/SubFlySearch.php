@@ -3,6 +3,7 @@
 namespace FlyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * SubFlySearch
@@ -12,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class SubFlySearch
 {
+    use TimestampableEntity;
+    
     /**
      * @var integer
      *

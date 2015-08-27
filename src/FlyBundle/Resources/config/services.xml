@@ -8,7 +8,7 @@
 
         <service id="guzzle_skyscanner" class="GuzzleHttp\Client" public="false">
             <argument type="collection">
-                <argument key="base_url">%skyscanner_url%</argument>
+                <argument key="base_url">http://www.skyscanner.fr</argument>
             </argument>
         </service>
 

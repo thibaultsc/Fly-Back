@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new FlyBundle\FlyBundle(),
             
             new Dunglas\ApiBundle\DunglasApiBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

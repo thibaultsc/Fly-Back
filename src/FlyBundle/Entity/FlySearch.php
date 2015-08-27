@@ -3,6 +3,7 @@
 namespace FlyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * FlySearch
@@ -12,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class FlySearch
 {
+    use TimestampableEntity;
+    
     /**
      * @var integer
      *
@@ -51,7 +54,6 @@ class FlySearch
     {
         return $this->id;
     }
-
 
 
     /**

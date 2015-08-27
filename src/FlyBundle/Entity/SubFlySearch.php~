@@ -157,27 +157,4 @@ class SubFlySearch
     {
         return $this->arrivalDate;
     }
-
-    /**
-     * Set flySearch
-     *
-     * @param \FlyBundle\Entity\FlySearch $flySearch
-     * @return SubFlySearch
-     */
-    public function setFlySearch(\FlyBundle\Entity\FlySearch $flySearch)
-    {
-        $this->flySearch = $flySearch;
-
-        return $this;
-    }
-
-    /**
-     * Get flySearch
-     *
-     * @return \FlyBundle\Entity\FlySearch 
-     */
-    public function getFlySearch()
-    {
-        return $this->flySearch;
-    }
 }

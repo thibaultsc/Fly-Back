@@ -22,11 +22,10 @@ class FlySearch
     private $id;
     
     /**
-     * @ORM\ManyToOne(targetEntity="FlyBundle\Entity\SubFlySearch")
-     * @ORM\JoinColumn(nullable=false)
+     * @var subFlySearch[]
+     * @ORM\OneToMany(targetEntity = "subFlySearch", mappedBy = "flySearch")
      */
-    private $subFlySearch;
-
+    private $subFlySearches;
 
     /**
      * @var integer
@@ -191,26 +190,4 @@ class FlySearch
         return $this->nbChildren;
     }
 
-    /**
-     * Set subFlySearch
-     *
-     * @param \stdClass $subFlySearch
-     * @return FlySearch
-     */
-    public function setSubFlySearch($subFlySearch)
-    {
-        $this->subFlySearch = $subFlySearch;
-
-        return $this;
-    }
-
-    /**
-     * Get subFlySearch
-     *
-     * @return \stdClass 
-     */
-    public function getSubFlySearch()
-    {
-        return $this->subFlySearch;
-    }
 }

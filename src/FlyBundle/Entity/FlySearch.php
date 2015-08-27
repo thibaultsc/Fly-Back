@@ -22,10 +22,10 @@ class FlySearch
     private $id;
     
     /**
-     * @ORM\ManyToOne(targetEntity="FlyBundle\Entity\SubFlySearch")
-     * @ORM\JoinColumn(nullable=false)
+     * @var subFlySearch[]
+     * @ORM\OneToMany(targetEntity = "subFlySearch", mappedBy = "flySearch")
      */
-    private $subFlySearch;
+    private $subFlySearches;
 
     /**
      * @var integer
@@ -191,25 +191,43 @@ class FlySearch
     }
 
     /**
-     * Set subFlySearch
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->subFlySearches = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add subFlySearches
      *
-     * @param \stdClass $subFlySearch
+     * @param \FlyBundle\Entity\subFlySearch $subFlySearches
      * @return FlySearch
      */
-    public function setSubFlySearch($subFlySearch)
+    public function addSubFlySearch(\FlyBundle\Entity\subFlySearch $subFlySearches)
     {
-        $this->subFlySearch = $subFlySearch;
+        $this->subFlySearches[] = $subFlySearches;
 
         return $this;
     }
 
     /**
-     * Get subFlySearch
+     * Remove subFlySearches
      *
-     * @return \stdClass 
+     * @param \FlyBundle\Entity\subFlySearch $subFlySearches
      */
-    public function getSubFlySearch()
+    public function removeSubFlySearch(\FlyBundle\Entity\subFlySearch $subFlySearches)
     {
-        return $this->subFlySearch;
+        $this->subFlySearches->removeElement($subFlySearches);
+    }
+
+    /**
+     * Get subFlySearches
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSubFlySearches()
+    {
+        return $this->subFlySearches;
     }
 }

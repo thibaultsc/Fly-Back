@@ -28,16 +28,14 @@ class SubFlySearch
     private $flySearch;
     
     /**
-     * @var string
-     *
-     * @ORM\Column(name="departure", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="FlyBundle\Entity\Airport")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $departure;    
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="arrival", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="FlyBundle\Entity\Airport")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $arrival;
 
@@ -66,51 +64,6 @@ class SubFlySearch
         return $this->id;
     }
 
-    /**
-     * Set departure
-     *
-     * @param string $departure
-     * @return SubFlySearch
-     */
-    public function setDeparture($departure)
-    {
-        $this->departure = $departure;
-
-        return $this;
-    }
-
-    /**
-     * Get departure
-     *
-     * @return string 
-     */
-    public function getDeparture()
-    {
-        return $this->departure;
-    }
-
-    /**
-     * Set arrival
-     *
-     * @param string $arrival
-     * @return SubFlySearch
-     */
-    public function setArrival($arrival)
-    {
-        $this->arrival = $arrival;
-
-        return $this;
-    }
-
-    /**
-     * Get arrival
-     *
-     * @return string 
-     */
-    public function getArrival()
-    {
-        return $this->arrival;
-    }
 
     /**
      * Set departureDate
@@ -156,5 +109,28 @@ class SubFlySearch
     public function getArrivalDate()
     {
         return $this->arrivalDate;
+    }
+
+    /**
+     * Set flySearch
+     *
+     * @param \FlyBundle\Entity\FlySearch $flySearch
+     * @return SubFlySearch
+     */
+    public function setFlySearch(\FlyBundle\Entity\FlySearch $flySearch)
+    {
+        $this->flySearch = $flySearch;
+
+        return $this;
+    }
+
+    /**
+     * Get flySearch
+     *
+     * @return \FlyBundle\Entity\FlySearch 
+     */
+    public function getFlySearch()
+    {
+        return $this->flySearch;
     }
 }

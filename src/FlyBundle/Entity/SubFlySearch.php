@@ -28,16 +28,14 @@ class SubFlySearch
     private $flySearch;
     
     /**
-     * @var string
-     *
-     * @ORM\Column(name="departure", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="FlyBundle\Entity\Airport")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $departure;    
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="arrival", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="FlyBundle\Entity\Airport")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $arrival;
 
@@ -66,51 +64,6 @@ class SubFlySearch
         return $this->id;
     }
 
-    /**
-     * Set departure
-     *
-     * @param string $departure
-     * @return SubFlySearch
-     */
-    public function setDeparture($departure)
-    {
-        $this->departure = $departure;
-
-        return $this;
-    }
-
-    /**
-     * Get departure
-     *
-     * @return string 
-     */
-    public function getDeparture()
-    {
-        return $this->departure;
-    }
-
-    /**
-     * Set arrival
-     *
-     * @param string $arrival
-     * @return SubFlySearch
-     */
-    public function setArrival($arrival)
-    {
-        $this->arrival = $arrival;
-
-        return $this;
-    }
-
-    /**
-     * Get arrival
-     *
-     * @return string 
-     */
-    public function getArrival()
-    {
-        return $this->arrival;
-    }
 
     /**
      * Set departureDate
@@ -179,5 +132,51 @@ class SubFlySearch
     public function getFlySearch()
     {
         return $this->flySearch;
+    }
+
+    /**
+     * Set departure
+     *
+     * @param \FlyBundle\Entity\Airport $departure
+     * @return SubFlySearch
+     */
+    public function setDeparture(\FlyBundle\Entity\Airport $departure)
+    {
+        $this->departure = $departure;
+
+        return $this;
+    }
+
+    /**
+     * Get departure
+     *
+     * @return \FlyBundle\Entity\Airport 
+     */
+    public function getDeparture()
+    {
+        return $this->departure;
+    }
+
+    /**
+     * Set arrival
+     *
+     * @param \FlyBundle\Entity\Airport $arrival
+     * @return SubFlySearch
+     */
+    public function setArrival(\FlyBundle\Entity\Airport $arrival)
+    {
+        $this->arrival = $arrival;
+
+        return $this;
+    }
+
+    /**
+     * Get arrival
+     *
+     * @return \FlyBundle\Entity\Airport 
+     */
+    public function getArrival()
+    {
+        return $this->arrival;
     }
 }

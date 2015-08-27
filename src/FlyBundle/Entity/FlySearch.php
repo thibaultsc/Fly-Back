@@ -23,7 +23,7 @@ class FlySearch
     
     /**
      * @var subFlySearch[]
-     * @ORM\OneToMany(targetEntity = "subFlySearch", mappedBy = "flySearch")
+     * @ORM\OneToMany(targetEntity = "SubFlySearch", mappedBy = "flySearch")
      */
     private $subFlySearches;
 
@@ -52,97 +52,7 @@ class FlySearch
         return $this->id;
     }
 
-    /**
-     * Set departure
-     *
-     * @param \stdClass $departure
-     * @return FlySearch
-     */
-    public function setDeparture($departure)
-    {
-        $this->departure = $departure;
 
-        return $this;
-    }
-
-    /**
-     * Get departure
-     *
-     * @return \stdClass 
-     */
-    public function getDeparture()
-    {
-        return $this->departure;
-    }
-
-    /**
-     * Set arrivals
-     *
-     * @param string $arrivals
-     * @return FlySearch
-     */
-    public function setArrivals($arrivals)
-    {
-        $this->arrivals = $arrivals;
-
-        return $this;
-    }
-
-    /**
-     * Get arrivals
-     *
-     * @return string 
-     */
-    public function getArrivals()
-    {
-        return $this->arrivals;
-    }
-
-    /**
-     * Set departureDate
-     *
-     * @param \DateTime $departureDate
-     * @return FlySearch
-     */
-    public function setDepartureDate($departureDate)
-    {
-        $this->departureDate = $departureDate;
-
-        return $this;
-    }
-
-    /**
-     * Get departureDate
-     *
-     * @return \DateTime 
-     */
-    public function getDepartureDate()
-    {
-        return $this->departureDate;
-    }
-
-    /**
-     * Set arrivalDate
-     *
-     * @param \DateTime $arrivalDate
-     * @return FlySearch
-     */
-    public function setArrivalDate($arrivalDate)
-    {
-        $this->arrivalDate = $arrivalDate;
-
-        return $this;
-    }
-
-    /**
-     * Get arrivalDate
-     *
-     * @return \DateTime 
-     */
-    public function getArrivalDate()
-    {
-        return $this->arrivalDate;
-    }
 
     /**
      * Set nbAdults

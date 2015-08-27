@@ -1,0 +1,15 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    resource.airport:
+        parent:    "api.resource"
+        arguments: [ "FlyBundle\Entity\Airport" ]
+        calls:     [ [ "initFilters", [ [ "@resource.airport.search_filter" ] ] ] ]
+        tags:      [ { name: "api.resource" } ]
+        
+    "resource.airport.search_filter":
+        parent:    "api.doctrine.orm.search_filter"
+        arguments: [ { "id": "exact", "name": "partial", "code": "partial" } ]

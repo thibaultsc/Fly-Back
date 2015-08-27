@@ -1,0 +1,3 @@
+fly_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: FlyBundle:Default:index }

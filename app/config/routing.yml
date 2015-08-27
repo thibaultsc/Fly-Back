@@ -1,0 +1,8 @@
+fly:
+    resource: "@FlyBundle/Controller"
+    type:   "annotation"
+
+api:
+    resource: "."
+    type:     "api"
+    prefix:   "/api" # Optional

@@ -52,12 +52,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/CoreSphere/ConsoleBundle.git",
-                "reference": "06ca9c4f94106135affbb06a3ac77ac29a096949"
+                "reference": "d0e807625d60ba698f5ad91a164faf93619041ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CoreSphere/ConsoleBundle/zipball/06ca9c4f94106135affbb06a3ac77ac29a096949",
-                "reference": "06ca9c4f94106135affbb06a3ac77ac29a096949",
+                "url": "https://api.github.com/repos/CoreSphere/ConsoleBundle/zipball/d0e807625d60ba698f5ad91a164faf93619041ca",
+                "reference": "d0e807625d60ba698f5ad91a164faf93619041ca",
                 "shasum": ""
             },
             "require": {
@@ -100,7 +100,7 @@
                 "javascript",
                 "symfony"
             ],
-            "time": "2015-08-26 19:05:03"
+            "time": "2015-08-28 14:48:47"
         },
         {
             "name": "doctrine/annotations",
@@ -931,16 +931,16 @@
         },
         {
             "name": "gedmo/doctrine-extensions",
-            "version": "v2.4.5",
+            "version": "v2.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "12da6e0c6ffbc7702d9f83ff12f3649a0bc5b600"
+                "reference": "5d330411e27ab0ced67e1e5383ccae975c23c17d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/12da6e0c6ffbc7702d9f83ff12f3649a0bc5b600",
-                "reference": "12da6e0c6ffbc7702d9f83ff12f3649a0bc5b600",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/5d330411e27ab0ced67e1e5383ccae975c23c17d",
+                "reference": "5d330411e27ab0ced67e1e5383ccae975c23c17d",
                 "shasum": ""
             },
             "require": {
@@ -1006,7 +1006,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2015-08-11 16:33:57"
+            "time": "2015-08-28 11:07:14"
         },
         {
             "name": "guzzlehttp/guzzle",

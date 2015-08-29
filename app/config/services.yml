@@ -14,11 +14,32 @@ services:
     resource.fly_search:
         parent:    "api.resource"
         arguments: [ "FlyBundle\Entity\FlySearch" ]
+        calls:
+            -      method:    "initNormalizationContext"
+                   arguments: [ { groups: [ "fs","sfs","t","f","p","a" ] } ]
         tags:      [ { name: "api.resource" } ]
         
     resource.sub_fly_search:
         parent:    "api.resource"
         arguments: [ "FlyBundle\Entity\SubFlySearch" ]
+        calls:
+            -      method:    "initNormalizationContext"
+                   arguments: [ { groups: [ "sfs" ] } ]
+        tags:      [ { name: "api.resource" } ]
+        
+    resource.travel:
+        parent:    "api.resource"
+        arguments: [ "FlyBundle\Entity\Travel" ]
+        tags:      [ { name: "api.resource" } ]
+        
+    resource.flight:
+        parent:    "api.resource"
+        arguments: [ "FlyBundle\Entity\Flight" ]
+        tags:      [ { name: "api.resource" } ]
+        
+    resource.price:
+        parent:    "api.resource"
+        arguments: [ "FlyBundle\Entity\\Price" ]
         tags:      [ { name: "api.resource" } ]
         
     "resource.airport.search_filter":

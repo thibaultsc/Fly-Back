@@ -4,6 +4,7 @@ namespace FlyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * FlySearch
@@ -27,6 +28,7 @@ class FlySearch
     /**
      * @var subFlySearch[]
      * @ORM\OneToMany(targetEntity = "SubFlySearch", mappedBy = "flySearch")
+     * @Groups({"fs"})
      */
     private $subFlySearches;
 
@@ -34,6 +36,7 @@ class FlySearch
      * @var integer
      *
      * @ORM\Column(name="nbAdults", type="integer")
+     * @Groups({"fs"})
      */
     private $nbAdults;
 
@@ -41,6 +44,7 @@ class FlySearch
      * @var integer
      *
      * @ORM\Column(name="nbChildren", type="integer")
+     * @Groups({"fs"})
      */
     private $nbChildren;
 

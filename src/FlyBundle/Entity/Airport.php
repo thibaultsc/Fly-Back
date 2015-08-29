@@ -4,6 +4,7 @@ namespace FlyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Airport
@@ -28,6 +29,7 @@ class Airport
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Groups({"a"})
      */
     private $name;
 
@@ -35,6 +37,7 @@ class Airport
      * @var string
      *
      * @ORM\Column(name="code", type="string", length=255)
+     * @Groups({"a"})
      */
     private $code;
 

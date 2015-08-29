@@ -4,6 +4,7 @@ namespace FlyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * SubFlySearch
@@ -33,12 +34,14 @@ class SubFlySearch
     /**
      * @ORM\ManyToOne(targetEntity="FlyBundle\Entity\Airport")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"sfs"})
      */
     private $departure;    
 
     /**
      * @ORM\ManyToOne(targetEntity="FlyBundle\Entity\Airport")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"sfs"})
      */
     private $arrival;
 
@@ -46,6 +49,7 @@ class SubFlySearch
      * @var string
      *
      * @ORM\Column(name="departureDate", type="string", length=255)
+     * @Groups({"sfs"})
      */
     private $departureDate;
 
@@ -53,8 +57,16 @@ class SubFlySearch
      * @var string
      *
      * @ORM\Column(name="arrivalDate", type="string", length=255)
+     * @Groups({"sfs"})
      */
     private $arrivalDate;
+    
+    /**
+     * @var travel[]
+     * @ORM\OneToMany(targetEntity = "Travel", mappedBy = "subFlySearch")
+     * @Groups({"sfs"})
+     */
+    private $travels;
 
 
     /**
@@ -181,5 +193,45 @@ class SubFlySearch
     public function getArrival()
     {
         return $this->arrival;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->travels = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add travels
+     *
+     * @param \FlyBundle\Entity\Travel $travels
+     * @return SubFlySearch
+     */
+    public function addTravel(\FlyBundle\Entity\Travel $travels)
+    {
+        $this->travels[] = $travels;
+
+        return $this;
+    }
+
+    /**
+     * Remove travels
+     *
+     * @param \FlyBundle\Entity\Travel $travels
+     */
+    public function removeTravel(\FlyBundle\Entity\Travel $travels)
+    {
+        $this->travels->removeElement($travels);
+    }
+
+    /**
+     * Get travels
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTravels()
+    {
+        return $this->travels;
     }
 }

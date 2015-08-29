@@ -3,6 +3,8 @@
 namespace FlyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * SubFlySearch
@@ -12,6 +14,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class SubFlySearch
 {
+    //use TimestampableEntity;
+    
     /**
      * @var integer
      *
@@ -30,12 +34,14 @@ class SubFlySearch
     /**
      * @ORM\ManyToOne(targetEntity="FlyBundle\Entity\Airport")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"fs"})
      */
     private $departure;    
 
     /**
      * @ORM\ManyToOne(targetEntity="FlyBundle\Entity\Airport")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"fs"})
      */
     private $arrival;
 
@@ -43,6 +49,7 @@ class SubFlySearch
      * @var string
      *
      * @ORM\Column(name="departureDate", type="string", length=255)
+     * @Groups({"fs"})
      */
     private $departureDate;
 
@@ -50,8 +57,15 @@ class SubFlySearch
      * @var string
      *
      * @ORM\Column(name="arrivalDate", type="string", length=255)
+     * @Groups({"fs"})
      */
     private $arrivalDate;
+    
+    /**
+     * @var travel[]
+     * @ORM\OneToMany(targetEntity = "Travel", mappedBy = "subFlySearch")
+     */
+    private $travels;
 
 
     /**
@@ -132,5 +146,51 @@ class SubFlySearch
     public function getFlySearch()
     {
         return $this->flySearch;
+    }
+
+    /**
+     * Set departure
+     *
+     * @param \FlyBundle\Entity\Airport $departure
+     * @return SubFlySearch
+     */
+    public function setDeparture(\FlyBundle\Entity\Airport $departure)
+    {
+        $this->departure = $departure;
+
+        return $this;
+    }
+
+    /**
+     * Get departure
+     *
+     * @return \FlyBundle\Entity\Airport 
+     */
+    public function getDeparture()
+    {
+        return $this->departure;
+    }
+
+    /**
+     * Set arrival
+     *
+     * @param \FlyBundle\Entity\Airport $arrival
+     * @return SubFlySearch
+     */
+    public function setArrival(\FlyBundle\Entity\Airport $arrival)
+    {
+        $this->arrival = $arrival;
+
+        return $this;
+    }
+
+    /**
+     * Get arrival
+     *
+     * @return \FlyBundle\Entity\Airport 
+     */
+    public function getArrival()
+    {
+        return $this->arrival;
     }
 }

@@ -9,8 +9,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * Travel
  *
- * @ORM\Table()
  * @ORM\Entity
+ * @ORM\Table(indexes={@ORM\Index(name="travel_subFlySearch_idx", columns={"sub_fly_search_id"})})
  */
 class Travel
 {
@@ -27,6 +27,7 @@ class Travel
     /**
      * @ORM\ManyToOne(targetEntity="FlyBundle\Entity\SubFlySearch")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"tsfs"})
      */
     private $subFlySearch;
 
@@ -79,28 +80,6 @@ class Travel
     }
 
 
-    /**
-     * Set priceAngencies
-     *
-     * @param string $priceAngencies
-     * @return Travel
-     */
-    public function setPriceAngencies($priceAngencies)
-    {
-        $this->priceAngencies = $priceAngencies;
-
-        return $this;
-    }
-
-    /**
-     * Get priceAngencies
-     *
-     * @return string 
-     */
-    public function getPriceAngencies()
-    {
-        return $this->priceAngencies;
-    }
     /**
      * Constructor
      */

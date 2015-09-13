@@ -9,8 +9,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * Price
  *
- * @ORM\Table()
  * @ORM\Entity
+ * @ORM\Table(indexes={@ORM\Index(name="price_travel_idx", columns={"travel_id"})})
  */
 class Price
 {

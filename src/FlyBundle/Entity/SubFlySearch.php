@@ -9,8 +9,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * SubFlySearch
  *
- * @ORM\Table()
  * @ORM\Entity
+ * @ORM\Table(indexes={@ORM\Index(name="sub_fly_search_flySearch_idx", columns={"fly_search_id"})})
  */
 class SubFlySearch
 {

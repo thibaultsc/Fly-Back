@@ -9,8 +9,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * Flight
  *
- * @ORM\Table()
  * @ORM\Entity
+ * @ORM\Table(indexes={@ORM\Index(name="flight_travel_idx", columns={"travel_id"})})
  */
 class Flight
 {

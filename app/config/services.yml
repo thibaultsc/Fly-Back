@@ -24,12 +24,17 @@ services:
         arguments: [ "FlyBundle\Entity\SubFlySearch" ]
         calls:
             -      method:    "initNormalizationContext"
-                   arguments: [ { groups: [ "sfs" ] } ]
+                   arguments: [ { groups: [ "sfs","t","f","p","a" ] } ]
         tags:      [ { name: "api.resource" } ]
         
     resource.travel:
         parent:    "api.resource"
         arguments: [ "FlyBundle\Entity\Travel" ]
+        calls:
+            -      method:    "initNormalizationContext"
+                   arguments: [ { groups: ["tsfs","t","f","p","a" ] } ]
+            -      method:    "initFilters"
+                   arguments: [ [ "@resource.travel.search_filter" ] ]        
         tags:      [ { name: "api.resource" } ]
         
     resource.flight:
@@ -45,3 +50,7 @@ services:
     "resource.airport.search_filter":
         parent:    "api.doctrine.orm.search_filter"
         arguments: [ { "id": "exact", "name": "partial", "code": "partial" } ]
+    
+    "resource.travel.search_filter":
+        parent:    "api.doctrine.orm.search_filter"
+        arguments: [ { "id": "exact","subFlySearch": "exact" } ]
